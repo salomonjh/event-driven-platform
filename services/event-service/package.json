@@ -1,0 +1,17 @@
+{
+    "name": "service",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "dev": "node src/index.js"
+    },
+    "dependencies": {
+        "cors": "^2.8.6",
+        "express": "^5.2.1",
+        "pg": "^8.17.2",
+        "pg-hstore": "^2.3.4",
+        "sequelize": "^6.37.7",
+        "swagger-ui-express": "^5.0.1",
+        "yaml": "^2.8.2"
+    }
+}
