@@ -1,0 +1,71 @@
+
+openapi: 3.1.0
+info:
+  title: Event Service API
+  version: 1.0.0
+
+paths:
+  /events:
+    post:
+      summary: Ingest a new event
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [type, payload]
+              properties:
+                type:
+                  type: string
+                payload:
+                  type: object
+      responses:
+        '201':
+          description: Event created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  eventId:
+                    type: string
+                    format: uuid
+    get:
+      summary: Retrieve all events
+      parameters:
+        - in: query
+          name: type
+          schema:
+          type: string
+          description: Filter events by type
+        - in: query
+          name: status
+          schema:
+          type: string
+          description: Filter events by status
+      responses:
+        '200':
+          description: A list of events
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      format: uuid
+                    type:
+                      type: string
+                    payload:
+                      type: object
+                    status:
+                      type: string
+                    createdAt:
+                      type: string
+                      format: date-time
+                    updatedAt:
+                      type: string
+                      format: date-time

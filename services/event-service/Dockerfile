@@ -5,7 +5,8 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 
-COPY . .
+COPY src ./src
+COPY openapi ./openapi
 
 EXPOSE 3000
 

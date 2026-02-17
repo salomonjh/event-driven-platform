@@ -1,0 +1,22 @@
+meta {
+  name: event-service|post-events
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseurl}}events
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
