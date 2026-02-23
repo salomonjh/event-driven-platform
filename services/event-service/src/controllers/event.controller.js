@@ -1,4 +1,5 @@
 const eventService = require('../services/event.service');
+const redisClient = require('../config/redis');
 
 /**
  * POST /events
@@ -14,6 +15,16 @@ exports.createEvent = async (req, res) => {
     }
 
     const event = await eventService.createEvent({ type, payload });
+
+    // Publish the event to Redis so that workers can process it
+    await redisClient.publish(
+        'events.created',
+        JSON.stringify({
+            id: event.id,
+            type: event.type,
+            payload: event.payload,
+        })
+    );
 
     res.status(201).json({
         eventId: event.id,

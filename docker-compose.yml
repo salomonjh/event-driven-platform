@@ -24,6 +24,7 @@ services:
       - redis
     volumes:
       - ./services/notification-worker:/app
+      - /app/node_modules
     command: npm run dev
 
   postgres:

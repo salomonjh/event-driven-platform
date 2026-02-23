@@ -3,6 +3,9 @@
     "version": "1.0.0",
     "private": true,
     "scripts": {
-        "dev": "node src/index.js"
+        "dev": "node src/worker.js"
+    },
+    "dependencies": {
+        "redis": "^5.11.0"
     }
 }
