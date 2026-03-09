@@ -3,9 +3,19 @@
     "version": "1.0.0",
     "private": true,
     "scripts": {
-        "dev": "node src/worker.js"
+        "start": "node src/worker.js",
+        "dev": "nodemon --legacy-watch src/worker.js",
+        "lint": "eslint . --ext .js"
     },
     "dependencies": {
-        "redis": "^5.11.0"
+        "dotenv": "^17.3.1",
+        "pg": "^8.18.0",
+        "pg-hstore": "^2.3.4",
+        "redis": "^5.11.0",
+        "sequelize": "^6.37.7"
+    },
+    "devDependencies": {
+        "nodemon": "^3.1.11",
+        "eslint": "^9.39.2"
     }
 }

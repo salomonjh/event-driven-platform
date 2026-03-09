@@ -1,24 +1,24 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
-const Event = sequelize.define('Event', {
+const Notification = sequelize.define('Notification', {
     id: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
-        primaryKey: true,
+        primaryKey: true
     },
-    type: {
-        type: DataTypes.STRING,
+    eventId: {
+        type: DataTypes.UUID,
         allowNull: false,
+        field: 'event_id',
+    },
+    status: {
+        type: DataTypes.ENUM('PENDING', 'SENT', 'FAILED'),
+        defaultValue: 'PENDING'
     },
     payload: {
         type: DataTypes.JSONB,
-        allowNull: false,
-    },
-    status: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        defaultValue: 'PENDING',
+        allowNull: true
     },
     createdAt: {
         type: DataTypes.DATE,
@@ -33,7 +33,7 @@ const Event = sequelize.define('Event', {
         field: 'updated_at',
     },
 }, {
-    tableName: 'events',
+    tableName: 'notifications',
 });
 
-module.exports = Event;
+module.exports = Notification;

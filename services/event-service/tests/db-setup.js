@@ -1,5 +1,5 @@
 // Import instance conexion
-const sequelize = require('../src/models'); 
+const sequelize = require('../src/config/database'); 
 
 // Import models
 require('../src/models/event.model'); 
