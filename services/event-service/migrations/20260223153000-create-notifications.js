@@ -12,7 +12,7 @@ module.exports = {
             event_id: {
                 type: Sequelize.UUID,
                 allowNull: false,
-                // Esto crea la relación con la tabla que ya tienes
+                unique: true,
                 references: { model: 'events', key: 'id' },
                 onUpdate: 'CASCADE',
                 onDelete: 'CASCADE',
